@@ -22,12 +22,11 @@ app.post("/user", async (req,res) => {
             res.send('User already exists')
         }
         const hashpassword = await bcrypt.hash(user.password,10)
-        const newUser = new Users({
+        const newUser = await Users.create({
             username: user.username,
             password: hashpassword
         })
-        newUser.save()
-        res.status(200).send('User created successfully')
+        res.status(200).send('User created successfully',newUser.username)
     }catch(err){
         console.log("Error: ",err)
     }

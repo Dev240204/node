@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const port = 3000
 const connect = require('./connect')
+const Users = require('../models/Users')
 
 connect()
 

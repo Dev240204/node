@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt')
 const connect = require('./connect')
 const Users = require('../models/Users')
 const app = express();
-const port = 3000
+const port = 3001
 
 connect()
 
@@ -11,7 +11,7 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.json())
 
 app.get('/',(req,res) => {
-    res.send('Hello World')
+    res.send("Hello World")
 })
 
 app.post("/user", async (req,res) => {
@@ -36,3 +36,5 @@ app.post("/user", async (req,res) => {
 app.listen(port,(req,res)=>{
     console.log(`Server is running on port ${port}`)
 })
+
+module.exports = app;

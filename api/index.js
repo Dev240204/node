@@ -6,6 +6,12 @@ const app = express();
 const port = 3001
 
 connect()
+.then(() => {
+    console.log('Database connected')
+})
+.catch((err) => {
+    console.error('Database connection error:', err);
+});
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
